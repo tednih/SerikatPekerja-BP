@@ -14,5 +14,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('beranda');
+})->name('beranda');
+
+Route::get('/tentang', function () {
+    return view('tentang');
+})->name('tentang');
+
+Route::get('/keanggotaan', function () {
+    return view('keanggotaan');
+})->name('keanggotaan');
+
+Route::get('/berita', function () {
+    return view('berita');
+})->name('berita');
+
+Route::get('/agenda', function () {
+    return view('agenda');
+})->name('agenda');
+
+Route::get('/dokumen', function () {
+    return view('dokumen');
+})->name('dokumen');
+
+Route::get('/kontak', function () {
+    return view('kontak');
+})->name('kontak');
