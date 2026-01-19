@@ -39,6 +39,63 @@
                 <li><a href="/agenda" class="hover:text-green-900">Agenda</a></li>
                 <li><a href="/dokumen" class="hover:text-green-900">Dokumen</a></li>
                 <li><a href="/kontak" class="hover:text-green-900">Kontak</a></li>
+                @auth
+                    <li class="relative group">
+                        <button
+                            class="flex items-center gap-1 text-sm font-medium text-green-700 hover:text-green-900 transition">
+                            Anggota
+                            <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <!-- DROPDOWN -->
+                        <div
+                            class="absolute right-0 mt-3 w-56 bg-white border border-green-200 rounded-lg shadow-lg
+                                       opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="{{ route('member.pkb') }}"
+                                class="block px-4 py-2 text-sm text-green-700 hover:bg-green-50">
+                                PKB (Download)
+                            </a>
+
+                            <a href="{{ route('member.keuangan') }}"
+                                class="block px-4 py-2 text-sm text-green-700 hover:bg-green-50">
+                                Laporan Keuangan
+                            </a>
+
+                            <a href="{{ route('member.pengaduan') }}"
+                                class="block px-4 py-2 text-sm text-green-700 hover:bg-green-50">
+                                Form Pengaduan
+                            </a>
+
+                            <div class="border-t border-green-200 my-2"></div>
+
+                            <a href="{{ route('member.index') }}"
+                                class="block px-4 py-2 text-sm text-green-700 hover:bg-green-50">
+                                Profile
+                            </a>
+
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit"
+                                    class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+                                    Logout
+                                </button>
+                            </form>
+                        </div>
+                    </li>
+                @endauth
+
+                <li>
+                    @auth
+
+                    @else
+                        <a href="{{ route('login') }}" class="hover:text-green-900">
+                            Login
+                        </a>
+                    @endauth
+                </li>
             </ul>
         </div>
 
@@ -54,13 +111,48 @@
                 <li><a href="/agenda" class="block py-3">Agenda</a></li>
                 <li><a href="/dokumen" class="block py-3">Dokumen</a></li>
                 <li><a href="/kontak" class="block py-3">Kontak</a></li>
+                @auth
+                    <li class="pt-2 border-t border-green-200">
+                        <p class="text-xs uppercase text-green-500 mb-2">Menu Anggota</p>
+
+                        <a href="{{ route('member.index') }}" class="block py-2 text-green-700">
+                            Profil Saya
+                        </a>
+
+                        <a href="/anggota/dokumen" class="block py-2 text-green-700">
+                            Dokumen Anggota
+                        </a>
+
+                        <a href="/anggota/password" class="block py-2 text-green-700">
+                            Ubah Password
+                        </a>
+
+                        <form method="POST" action="{{ route('logout') }}" class="mt-2">
+                            @csrf
+                            <button type="submit" class="text-red-600 py-2">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+                @endauth
+
+                <li>
+                    @auth
+
+                    @else
+                        <a href="{{ route('login') }}" class="hover:text-green-900">
+                            Login
+                        </a>
+                    @endauth
+                </li>
             </ul>
+
         </div>
     </nav>
 
 
     {{-- CONTENT --}}
-    <main>
+    <main class="py-16 bg-gray-50 min-h-screen">
         @yield('content')
     </main>
 
