@@ -53,7 +53,7 @@
                         <!-- DROPDOWN -->
                         <div
                             class="absolute right-0 mt-3 w-56 bg-white border border-green-200 rounded-lg shadow-lg
-                                       opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                           opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                             <a href="{{ route('member.pkb') }}"
                                 class="block px-4 py-2 text-sm text-green-700 hover:bg-green-50">
                                 PKB (Download)
@@ -119,11 +119,11 @@
                             Profil Saya
                         </a>
 
-                        <a href="/anggota/dokumen" class="block py-2 text-green-700">
+                        <a href="/member/dokumen" class="block py-2 text-green-700">
                             Dokumen Anggota
                         </a>
 
-                        <a href="/anggota/password" class="block py-2 text-green-700">
+                        <a href="/member/password" class="block py-2 text-green-700">
                             Ubah Password
                         </a>
 
